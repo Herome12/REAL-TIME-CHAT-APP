@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
 
     role:{
         type:String,
-        default:user,
+        default:"user",
     },
 
     avatar:{
@@ -51,5 +51,24 @@ const userSchema = new mongoose.Schema({
     resetPasswordToken:String,
     resetPasswordExpire:Date,
 })
+
+//methods
+
+userSchema.pre("save",async function(next){
+    if(!this.isModified("password")){
+        next();
+    }
+ 
+    this.password = await bcrypt.hash(this.password,10)
+})
+
+userSchema.methods.comparePassword = async function(enterPassword){
+    return await bcrypt.compare(enterPassword,this.password)
+}
+
+
+
+
+
 
 module.exports = mongoose.model("User",userSchema);
