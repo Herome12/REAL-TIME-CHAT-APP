@@ -2,6 +2,8 @@ const User = require("../schema/useModal")
 const ErrorHandler = require("../utils/errorhandler")
 const sendToken = require("../utils/sendToken")
 const catchAsynError = require("../middleware/catchAsynError")
+const sendEmail = require("../middleware/sendEmail")
+const crypto = require("crypto")
 
 
 
@@ -123,4 +125,31 @@ exports.forgotPassword = catchAsynError(async(req,res,next)=>{
 
         
     }
+})
+
+
+//reset password 
+
+exports.resetPassword = catchAsynError(async(req,res,next)=>{
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.token).digest("hex")
+
+    const user = await User.findOne({
+        resetPasswordToken,
+        resetPasswordExpire:{$gt: Date.now()}
+    })
+
+    if(!user){
+        return next(new ErrorHandler("user not found",404))
+    }
+
+    if(req.body.newPassword !== req.body.confirmPassword){
+        return next(new ErrorHandler("password doesn't match",404))
+    }
+
+    user.password = req.body.confirmPassword;
+    user.resetPasswordToken=undefined
+
+    user.resetPasswordExpire=undefined
+
+    sendToken(user,200,res)
 })
