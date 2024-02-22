@@ -1,5 +1,5 @@
 const express = require("express");
-const { newUser, loginUser } = require("../controller/userController");
+const { newUser, loginUser, forgotPassword } = require("../controller/userController");
 
 
 const router = express.Router();
@@ -8,6 +8,7 @@ router.post("/createUser",newUser)
 
 router.get("/loginUser",loginUser)
 
+router.post("/forgotPassword",forgotPassword)
 
 
 

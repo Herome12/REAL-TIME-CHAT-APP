@@ -153,3 +153,30 @@ exports.resetPassword = catchAsynError(async(req,res,next)=>{
 
     sendToken(user,200,res)
 })
+
+//update password 
+
+exports.updatePassword = catchAsynError(async(req,res,next)=>{
+    const user = await User.findById(req.params.id).select("+password")
+
+    if(!user){
+        return next(new ErrorHandler("user not found",404))
+    }
+
+    const isPasswordMatch = await user.comparePassword(req.body.oldPassword);
+
+    if(!isPasswordMatch){
+        return next(new ErrorHandler("password doesn't match",404))
+    }
+
+    if(req.body.newPassword!==req.body.oldPassword){
+        return next(new ErrorHandler("password not same"))
+    }
+
+    user.password = req.body.newPassword;
+
+    await user.save();
+
+    sendToken(user,200,res);
+})
+
