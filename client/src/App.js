@@ -1,6 +1,9 @@
 
 import React, { useEffect } from 'react'
 import {io} from "socket.io-client"
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
+import Header from './Components/Header/Header'
+import Home from "./Components/Home/Home"
 
 function App() {
 
@@ -17,6 +20,15 @@ function App() {
   
   return (
   <>
+  <Router>
+    <Header/>
+    <Routes>
+      <Route exact path='/' Component={Home}/>
+
+      
+    </Routes>
+  </Router>
+
   </>
 
    
