@@ -4,7 +4,9 @@ import { userLogin } from "./reducer/UserReducer"
 
 
  const store = configureStore({
-     login:userLogin
+     reducer:{
+        login:userLogin
+     }
 })
 
 export default  store
