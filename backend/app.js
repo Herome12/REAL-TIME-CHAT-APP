@@ -4,12 +4,20 @@ const path = require("path")
 const app = express();
 const cookie_parser = require("cookie-parser")
 const bodyParser = require("body-parser")
+const fileUpload = require("express-fileupload")
 
 
-//connecting config
-dotenv.config({path:"./config/config.env"})
+
 app.use(express.json());
 app.use(cookie_parser());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(fileUpload())
+
+//connecting config
+
+
+
+dotenv.config({path:"./config/config.env"})
  
 
 const user = require("./router/userRouter")

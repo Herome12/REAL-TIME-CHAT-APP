@@ -4,6 +4,7 @@ const {Server} = require("socket.io")
 const cors = require("cors")
 const app = require("./app")
 const userData = require("./database")
+const cloudinary = require("cloudinary")
 
 
  
@@ -29,6 +30,13 @@ app.use(
 
 //connection to database 
 userData();
+
+//cloudinary connection
+cloudinary.config({ 
+  cloud_name: process.env.cloud_name,
+  api_key: process.env.api_key,
+  api_secret: process.env.api_secret
+});
 
 io.on("connection",(socket)=>{
   console.log(`connected successfull ${socket.id}`)
