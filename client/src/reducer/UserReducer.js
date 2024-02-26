@@ -17,6 +17,7 @@ export const userLogin = createReducer(initialValue,(builder)=>{
         return{
             loading:false,
             isAuthenticated:true,
+          
             userLogin:action.payload
         }
     })
@@ -40,7 +41,8 @@ export const userRegister = createReducer(initialValue,(builder)=>{
     builder.addCase(REGISTER_USER_SUCCESS,(state,action)=>{
         return{
             loading:false,
-            user:action.payload
+            isAuthenticated:true,
+            registerUser:action.payload
         }
     })
     builder.addCase(REGISTER_USER_FAIL,(state,action)=>{

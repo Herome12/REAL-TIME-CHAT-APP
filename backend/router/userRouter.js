@@ -3,10 +3,10 @@ const { newUser, loginUser, forgotPassword } = require("../controller/userContro
 
 
 const router = express.Router();
-
+ 
 router.post("/createUser",newUser)
 
-router.get("/loginUser",loginUser)
+router.post("/loginUser",loginUser)
 
 router.post("/forgotPassword",forgotPassword)
 

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import PermIdentityRoundedIcon from "@mui/icons-material/PermIdentityRounded";
 import MailIcon from "@mui/icons-material/Mail";
 import PasswordIcon from "@mui/icons-material/Password";
-import { Switch } from "@mui/material";
+
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const SignIn = () => {
   );
 
   const [user, setuser] = useState({
-    name: "",
+    name: "", 
     email: "",
     password: "",
   });
@@ -34,19 +34,20 @@ const SignIn = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(email, password));
-
-    if (isAuthenticated) {
-      navigate("/");
+    dispatch(loginUser(loginEmail, loginPassword));
+   
+    if(isAuthenticated){
+      navigate("/")
     }
-    console.log("successfully log in");
+
+    console.log("successfully login");
   };
 
   const switcherTab = useRef(null);
   const loginTab = useRef(null);
   const registerTab = useRef(null);
 
-  const registerSubmit = (e) => {
+  const registerSubmit = (e) => { 
     e.preventDefault(); 
 
     const myForm = new FormData();
@@ -57,8 +58,12 @@ const SignIn = () => {
     myForm.set("avatar", avatar);
     console.log("registerForm Submitted");
     dispatch(userRegister(myForm));
+    if(isAuthenticated){
+      navigate("/")
+    }
+    
 
-    navigate("/")
+    
   };
 
   const registerDataChange = (e) => {

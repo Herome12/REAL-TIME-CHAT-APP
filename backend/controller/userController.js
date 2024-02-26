@@ -28,7 +28,7 @@ exports.newUser = async (req, res, next) => {
  
 };
 
-exports.loginUser = async (req, res, next) => {
+exports.loginUser = catchAsynError(async (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -48,7 +48,7 @@ exports.loginUser = async (req, res, next) => {
   }
 
   sendToken(user, 200, res);
-};
+});
 
 //logout user
 
