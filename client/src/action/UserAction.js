@@ -2,6 +2,7 @@ import {createAction} from "@reduxjs/toolkit";
 import axios from "axios"
 
 
+
 export const LOGIN_REQUEST = createAction("LOGIN_REQUEST");
 export const LOGIN_SUCCESS =createAction ("LOGIN_SUCCESS");
 export const LOGIN_FAIL = createAction("LOGIN_FAIL");
@@ -11,6 +12,13 @@ export const LOGIN_FAIL = createAction("LOGIN_FAIL");
 export const REGISTER_USER_REQUEST =createAction ( "REGISTER_USER_REQUEST");
 export const REGISTER_USER_SUCCESS = createAction("REGISTER_USER_SUCCESS");
 export const REGISTER_USER_FAIL =createAction ("REGISTER_USER_FAIL");
+
+//LOAD USER 
+export const LOAD_REQUEST = createAction("LOAD_REQUEST")
+export const LOAD_SUCCESS = createAction("LOAD_SUCCESS")
+export const LOAD_FAIL = createAction("LOAD_FAIL")
+
+
 
 
 //login user 
@@ -65,6 +73,17 @@ export const userRegister = (userData)=>async(dispatch)=>{
             type:REGISTER_USER_FAIL,
             payload:error.message
         })
+        
+    }
+}
+
+//load user 
+
+export  const loadUser = ()=>async(dispatch) =>{
+
+    try {
+        
+    } catch (error) {
         
     }
 }

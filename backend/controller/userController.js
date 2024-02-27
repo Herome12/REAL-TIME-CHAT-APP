@@ -65,7 +65,7 @@ exports.logoutUser = catchAsynError(async (req, res, next) => {
 });
 
 exports.getUserDetails = catchAsynError(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.user.id);
 
   if (!user) {
     return next(new ErrorHandler("user not found", 404));
