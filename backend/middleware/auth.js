@@ -1,7 +1,7 @@
 const ErrorHandler = require("../utils/errorhandler");
-const catchasyncerror = require("./catchasyncerror");
+const catchasyncerror = require("./catchAsynError");
 const jwt = require("jsonwebtoken");
-const User = require("../models/userSchema");
+const User = require("../schema/useModal");
 
 
 
@@ -12,7 +12,7 @@ exports.isAuthenticatedUser = catchasyncerror(async(req,res,next)=>{
         return next(new ErrorHandler("please login to move further",401))
     }
 
-    const decodedData = jwt.verify(token,process.env.JWTkey)
+    const decodedData = jwt.verify(token,process.env.JWTTOKEN)
 
     req.user = await User.findById(decodedData.id)
 

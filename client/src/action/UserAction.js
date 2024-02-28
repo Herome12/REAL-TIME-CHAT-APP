@@ -82,8 +82,24 @@ export const userRegister = (userData)=>async(dispatch)=>{
 export  const loadUser = ()=>async(dispatch) =>{
 
     try {
+        dispatch({
+            type:LOAD_REQUEST
+        })
+
+        const config = {headers:{"Content-Type":"application/json"}}
+
+        const {data} = await axios.get("/api/v1/me",config)
+
+        dispatch({
+            type:LOAD_SUCCESS,
+            payload:data
+        })
         
     } catch (error) {
+        dispatch({
+            type:LOAD_FAIL,
+            payload:error.message
+        })
         
     }
 }

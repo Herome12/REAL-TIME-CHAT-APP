@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import { userLogin, userRegister } from "./reducer/UserReducer"
+import { loadUser, userLogin, userRegister } from "./reducer/UserReducer"
 
 
 
@@ -7,7 +7,8 @@ import { userLogin, userRegister } from "./reducer/UserReducer"
  const store = configureStore({
      reducer:{
         login:userLogin,
-        register:userRegister
+        register:userRegister,
+        load:loadUser
         
      }
 })
