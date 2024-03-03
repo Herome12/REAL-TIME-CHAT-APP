@@ -1,5 +1,65 @@
+body{
+  background: url("./pexels-henry-&-co-1939485.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
 
-form{
-    text-align: center;
-    margin-top: 20%;
 }
+
+
+form {
+   
+   flex-direction: column;
+   display: flex;
+    margin-top: 40%;
+    
+  }
+  
+
+  #outlined-basic {
+      
+  }
+  
+  
+  Button {
+    align-self: flex-end;
+  }
+  
+  
+  Stack {
+    max-height: 300px; 
+    overflow-y: auto;
+   
+    
+  }
+  
+  .directMessage{
+    width: 30%;
+    height: 100px;
+    border-radius: 20px;
+  }
+  
+  .directMessage>div{
+    padding-top: 5%;
+    
+    background-color: aquamarine;
+    border-radius: 15px;
+    height: 50px;
+  }
+.message {
+    align-self: flex-end;
+    width: 30%;
+    height: 100px;
+    border-radius: 20px;
+  }
+  .message>div{
+    padding-top: 5%;
+    
+    background-color:antiquewhite;
+    border-radius: 15px;
+    height: 50px;
+    
+  }
+  /* Optional: Add more styling as needed */
+  

@@ -10,9 +10,10 @@ import Stack from '@mui/material/Stack';
 const Chat = () => {
   const [message, setmessage] = useState("");
   const [Messages, setMessages] = useState([])
+  const [directMessage, setdirectMessage] = useState([])
 
 
-
+ 
    const socket = useMemo(() => io("http://localhost:8000"), [])
 
    useEffect(() => {
@@ -25,6 +26,10 @@ const Chat = () => {
         socket.on("recieve-message",(data)=>{
           console.log(data)
           setMessages((Messages)=>[...Messages,data])
+        })
+        socket.on("recieve",(data)=>{
+          console.log(data)
+          setdirectMessage((directMessage)=>[...directMessage,data])
         })
         
       })
@@ -44,7 +49,26 @@ const Chat = () => {
 
   return (
     <>
+    <div className="container">
+
+    
       <form onSubmit={handleSubmit}>
+      <Stack>
+      
+          
+          {Messages.map((value,index)=>(
+             <Typography  className="message" key={index}><div>{value}</div></Typography>
+          )
+              
+          )}
+          {
+            directMessage.map((value,index)=>(
+              <Typography className="directMessage" key={index}><div>{value}</div></Typography>
+            ))
+          }
+        
+        </Stack>
+        
         <TextField
           id="outlined-basic"
           value={message}
@@ -57,16 +81,11 @@ const Chat = () => {
             Send
           </Button>
         </div>
-        <Stack>
-          {Messages.map((value,index)=>(
-             <Typography key={index}>{value}</Typography>
-          )
-              
-          )}
-        </Stack>
+        
       
         
       </form>
+      </div>
     </>
   );
 };
