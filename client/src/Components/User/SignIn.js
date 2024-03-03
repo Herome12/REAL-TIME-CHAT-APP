@@ -37,7 +37,7 @@ const SignIn = () => {
     dispatch(loginUser(loginEmail, loginPassword));
    
     if(isAuthenticated){
-      navigate("/")
+      navigate('/')
     }
 
     console.log("successfully login");

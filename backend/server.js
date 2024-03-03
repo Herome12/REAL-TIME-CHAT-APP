@@ -42,6 +42,10 @@ io.on("connection",(socket)=>{
   console.log(`connected successfull ${socket.id}`)
 
   socket.broadcast.emit("Welcome",`Welcome to the server:${socket.id}`)
+  socket.on("message",(data)=>{
+    console.log(data)
+    socket.broadcast.emit("recieve-message",data)
+  })
 })
   
 app.get("/",(req,res)=>{

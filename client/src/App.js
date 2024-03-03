@@ -8,6 +8,7 @@ import SignIn from './Components/User/SignIn'
 import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loadUser } from './action/UserAction'
+import Chat from './Components/Home/Chat'
 
 
 function App() {
@@ -21,26 +22,22 @@ function App() {
   useEffect(() => {
 
     //load user action deployment 
-    dispatch(loadUser())
+     dispatch(loadUser())
 
      
-   socket.on("connect",()=>{
-    console.log("connected successfully"+socket.id)
-
-    socket.on("Welcome",(m)=>{
-      console.log(m)
-    })
-   })
-  }, [socket])
+  
+  }, [dispatch])
   
   return (
   <>
   <Router>
     <Header/>
-
+  
     <Routes>
       <Route exact path='/' Component={Home}/>
       <Route exact path='/login' Component={SignIn}/>
+      <Route exact path='/chat' Component={Chat}/>
+      
       
 
       
