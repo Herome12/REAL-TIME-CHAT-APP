@@ -26,7 +26,7 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-
+ 
   const { name, email, password } = user;
 
   const [avatar, setavatar] = useState("");
@@ -37,7 +37,7 @@ const SignIn = () => {
     dispatch(loginUser(loginEmail, loginPassword));
    
     if(isAuthenticated){
-      navigate('/')
+      navigate('/chat')
     }
 
     console.log("successfully login");

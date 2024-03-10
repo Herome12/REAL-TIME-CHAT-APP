@@ -21,9 +21,11 @@ dotenv.config({path:"./config/config.env"})
  
 
 const user = require("./router/userRouter")
+const message = require("./router/messageRouter")
+
 
 app.use("/api/v1",user)
- 
+app.use("/api/v1",message) 
 
 
 

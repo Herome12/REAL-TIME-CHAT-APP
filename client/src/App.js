@@ -34,8 +34,8 @@ function App() {
     <Header/>
   
     <Routes>
-      <Route exact path='/' Component={Home}/>
-      <Route exact path='/login' Component={SignIn}/>
+      <Route exact path='/' Component={SignIn}/>
+      
       <Route exact path='/chat' Component={Chat}/>
       
       

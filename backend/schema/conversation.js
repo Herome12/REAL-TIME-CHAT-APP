@@ -13,9 +13,9 @@ const conversation = new mongoose.Schema({
             ref: "Message",
             default: [],
         },
-    ],
-    timestamps:true,
+    ], 
+  
 })
 
 
-module.exports= mongoose.model("chat",conversation)
+module.exports= mongoose.model("Conversation",conversation)

@@ -19,4 +19,4 @@ const message = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("chat",message)
+module.exports = mongoose.model("Message",message)
