@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import {useDispatch,useSelector} from "react-redux"
 import { getAllUsers } from "../../action/UserAction";
+import Users from "./Users";
 
 const Chat = () => {
 
@@ -20,7 +21,7 @@ const Chat = () => {
   const [directMessage, setdirectMessage] = useState([])
 
   const {users} = useSelector((state)=>state.AllUsers)
-  console.log(users)
+
  
    const socket = useMemo(() => io("http://localhost:8000"), [])
 
@@ -63,15 +64,18 @@ const Chat = () => {
 
   return (
     <>
+
+<div className="users">
+    
+    {users&& users.map((user,index)=>(
+      <Users user = {user}/>
+    ))}
+ </div>    
     <div className="container">
       
-   <div className="users">
-    
-      {users&& users.map((user,index)=>(
-        user.name
-      ))}
+  
  
-   </div>
+ 
     
       <form onSubmit={handleSubmit}>
       <Stack>

@@ -3,39 +3,38 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 70%;
-  margin-left: 30%;
-  height: 700px;
+ 
  
 
 }
-
+.users{
+  width: 30%;
+  height: 700px;
+ 
+}
+.container{
+  width: 70%;
+  margin-left: 30%;
+  height: 20px;
+  float: right;
+}
 
 form {
    
    flex-direction: column;
    display: flex;
-    margin-top: 55%;
+   
     
   }
   
 
-  #outlined-basic {
-      
-  }
   
   
   Button {
     align-self: flex-end;
   }
   
-  
-  Stack {
-    max-height: 300px; 
-    overflow-y: auto;
-   
-    
-  }
+
   
   .directMessage{
     width: 30%;
@@ -64,5 +63,5 @@ form {
     height: 50px;
     
   }
-  /* Optional: Add more styling as needed */
+
   
