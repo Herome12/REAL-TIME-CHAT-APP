@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit"
-import { loadUser, userLogin, userRegister } from "./reducer/UserReducer"
+import { getUsers, loadUser, userLogin, userRegister } from "./reducer/UserReducer"
 
 
 
@@ -8,7 +8,8 @@ import { loadUser, userLogin, userRegister } from "./reducer/UserReducer"
      reducer:{
         login:userLogin,
         register:userRegister,
-        load:loadUser
+        load:loadUser,
+        AllUsers:getUsers
         
      }
 })

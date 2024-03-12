@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { LOAD_FAIL, LOAD_REQUEST, LOAD_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../action/UserAction";
+import { GET_ALL_USERS_FAIL, GET_ALL_USERS_REQUEST, GET_ALL_USERS_SUCCESS, LOAD_FAIL, LOAD_REQUEST, LOAD_SUCCESS, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../action/UserAction";
 
 
 //loginUser 
@@ -70,6 +70,29 @@ export const loadUser = createReducer(initialValue,(builder)=>{
     })
 
     builder.addCase(LOAD_FAIL,(state,action)=>{
+        return{
+            loading:false,
+            error:action.payload
+        }
+    })
+})
+
+//get all users
+export const getUsers = createReducer(initialValue,(builder)=>{
+    builder.addCase(GET_ALL_USERS_REQUEST,(state,action)=>{
+        return{
+            loading:true,
+
+        }
+    })
+    builder.addCase(GET_ALL_USERS_SUCCESS,(state,action)=>{
+        return{
+            loading:false,
+            users:action.payload
+        }
+    })
+
+    builder.addCase(GET_ALL_USERS_FAIL,(state,action)=>{
         return{
             loading:false,
             error:action.payload

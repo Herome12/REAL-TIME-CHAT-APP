@@ -3,6 +3,7 @@ import axios from "axios"
 
 
 
+
 export const LOGIN_REQUEST = createAction("LOGIN_REQUEST");
 export const LOGIN_SUCCESS =createAction ("LOGIN_SUCCESS");
 export const LOGIN_FAIL = createAction("LOGIN_FAIL");
@@ -18,6 +19,10 @@ export const LOAD_REQUEST = createAction("LOAD_REQUEST")
 export const LOAD_SUCCESS = createAction("LOAD_SUCCESS")
 export const LOAD_FAIL = createAction("LOAD_FAIL")
 
+//get all user 
+export const GET_ALL_USERS_REQUEST = createAction("GET_ALL_USERS_REQUEST")
+export const GET_ALL_USERS_SUCCESS = createAction("GET_ALL_USERS_SUCCESS")
+export const GET_ALL_USERS_FAIL = createAction("GET_ALL_USERS_FAIL")
 
 
 
@@ -98,6 +103,32 @@ export  const loadUser = ()=>async(dispatch) =>{
     } catch (error) {
         dispatch({
             type:LOAD_FAIL,
+            payload:error.message
+        })
+        
+    }
+}
+
+//get all users
+export const getAllUsers = ()=>async(dispatch)=>{
+    try {
+        dispatch({
+            type:GET_ALL_USERS_REQUEST,
+        })
+
+        const config = {headers:{"Content-Type":"application/json"}}
+
+        const {data} = await axios.get("api/v1/users",config);
+
+        dispatch({
+            type:GET_ALL_USERS_SUCCESS,
+            payload:data.user
+        })
+
+    } catch (error) {
+
+        dispatch({
+            type:GET_ALL_USERS_FAIL,
             payload:error.message
         })
         

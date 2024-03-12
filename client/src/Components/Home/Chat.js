@@ -5,18 +5,32 @@ import Button from "@mui/material/Button";
 import { io } from "socket.io-client";
 import { Typography } from "@mui/material";
 import Stack from '@mui/material/Stack';
- 
+import {useDispatch,useSelector} from "react-redux"
+import { getAllUsers } from "../../action/UserAction";
 
 const Chat = () => {
+
+  const dispatch = useDispatch();
+  
+
+
+
   const [message, setmessage] = useState("");
   const [Messages, setMessages] = useState([])
   const [directMessage, setdirectMessage] = useState([])
 
-
+  const {users} = useSelector((state)=>state.AllUsers)
+  console.log(users)
  
    const socket = useMemo(() => io("http://localhost:8000"), [])
 
    useEffect(() => {
+     //action dispatched....
+     dispatch(getAllUsers());
+
+   
+
+
       socket.on("connect",()=>{
         console.log("user connected successfully",socket.id)
 
@@ -36,7 +50,7 @@ const Chat = () => {
       
    
     
-   }, [socket])
+   }, [socket,dispatch])
    
 
   const handleSubmit = (e) => {
@@ -50,7 +64,14 @@ const Chat = () => {
   return (
     <>
     <div className="container">
-
+      
+   <div className="users">
+    
+      {users&& users.map((user,index)=>(
+        user.name
+      ))}
+ 
+   </div>
     
       <form onSubmit={handleSubmit}>
       <Stack>
