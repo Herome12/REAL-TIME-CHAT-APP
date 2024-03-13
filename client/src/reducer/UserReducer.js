@@ -65,7 +65,7 @@ export const loadUser = createReducer(initialValue,(builder)=>{
         return{
             loading:false,
             isAuthenticated:true,
-            load:action.payload
+            loadUser:action.payload.user
         }
     })
 

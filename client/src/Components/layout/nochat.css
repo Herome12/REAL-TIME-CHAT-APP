@@ -1,0 +1,17 @@
+.Nochat{
+    
+    float: right;
+    text-align: center;
+    margin-top: 6%;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(rgb(235, 231, 231),rgb(90, 90, 201),rgb(222, 198, 198));
+    width: 70%;
+}
+
+.Welcome{
+    margin-top: 30%;
+    font-size: 30px;
+}

@@ -3,17 +3,28 @@
     align-items: center; 
    
     background-color: rgb(215, 206, 206);
-    margin-top: 2%;
+    margin-top: 3%;
     border-radius: 10px;
+    width: 90%;
+   
+    
   }
 
+ .users-container{
+  max-height: 100px;
+  overflow-y: auto;
+ }
   .avatar{
     margin-top: 5%;
     margin-left: 6%;
   }
-  
-  .users-container > * {
-    margin-right: 10px; 
+
+  .user-details
+  {
+    padding: 10px;
+
   }
+  
+ 
    
   
