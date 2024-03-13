@@ -84,7 +84,7 @@ const Chat = () => {
           {Messages.map((value,index)=>(
              <Typography  className="message" key={index}><div>{value}</div></Typography>
           )
-              
+
           )}
           {
             directMessage.map((value,index)=>(
