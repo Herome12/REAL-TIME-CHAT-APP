@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../action/UserAction";
 import Users from "./Users";
 import NoChatSelected from "../layout/Nochat";
+import Message from "./Message.js"
 
 const Chat = () => {
   const chatEmpty = false;
@@ -56,7 +57,9 @@ const Chat = () => {
       
     </div>
     <div className="rightMessage">
-      hi
+      <form >
+        <TextField className="Textfield"/>
+      </form>
     </div>
    
     </div>

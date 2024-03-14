@@ -6,7 +6,7 @@
     margin-top: 3%;
     width: 30%;
     margin-left: 2%;
-    background-color: red;
+    
     max-height: 700px;
     overflow-y: auto;
     
@@ -14,9 +14,16 @@
    
     
 }
+.Textfield{
+  width: 100%;
+  margin-top: 50%;
+
+}
+
 
 .rightMessage{
-  float: right;
-  margin-left: 60%;
+ 
+  
+  width: 65%;
 
 }
