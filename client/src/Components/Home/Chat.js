@@ -58,7 +58,8 @@ const Chat = () => {
     </div>
     <div className="rightMessage">
       <form >
-        <TextField className="Textfield"/>
+        <TextField className="Textfield" value={message} onChange={(e)=>setMessage(e.target.value)}/>
+        <button  onClick={handleSubmit}>Send</button>
       </form>
     </div>
    

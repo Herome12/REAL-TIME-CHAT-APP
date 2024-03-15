@@ -15,9 +15,20 @@
     
 }
 .Textfield{
-  width: 100%;
-  margin-top: 50%;
+  width: 90%;
+  
 
+}
+form{
+  margin-top: 65%;
+  display: flex;
+  margin-left: 5%;
+}
+form button{
+  width: 20%;
+  margin-left: 2%;
+  background-color: beige;
+  border-radius: 10px;
 }
 
 
