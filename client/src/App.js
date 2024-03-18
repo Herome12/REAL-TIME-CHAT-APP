@@ -1,20 +1,24 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import {io} from "socket.io-client"
-import {BrowserRouter as Router,Routes,Route, useSearchParams} from "react-router-dom"
-import Header from './Components/Header/Header'
-import Home from "./Components/Home/Home"
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
+
+
 import SignIn from './Components/User/SignIn'
 import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { loadUser } from './action/UserAction'
-import Chat from './Components/Home/Chat'
+import Users from './Components/Home/Users'
+
+
+
+ 
 
 
 function App() {
 
   const dispatch= useDispatch();
-  
+
   //use Selector 
   const {user} = useSelector((state)=>state.load)
 
@@ -31,19 +35,19 @@ function App() {
   return (
   <>
   <Router>
-    <Header/>
+    
   
     <Routes>
       <Route exact path='/' Component={SignIn}/>
+      <Route exact path = '/chat' Component={Users}/>
       
-      <Route exact path='/chat' Component={Chat}/>
       
       
 
       
     </Routes>
   </Router>
-
+ 
   </>
 
    
