@@ -8,6 +8,7 @@ const fileUpload = require("express-fileupload")
 
 
 
+
 app.use(express.json());
 app.use(cookie_parser());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -21,11 +22,14 @@ dotenv.config({path:"./config/config.env"})
  
 
 const user = require("./router/userRouter")
-const message = require("./router/messageRouter")
 
+const Chat = require("./router/Chat")
+
+ 
 
 app.use("/api/v1",user)
-app.use("/api/v1",message) 
+ 
+app.use("api/v1/",Chat)
 
 
 
