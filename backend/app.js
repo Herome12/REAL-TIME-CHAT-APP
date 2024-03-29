@@ -15,21 +15,19 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
 
 //connecting config
- 
+ dotenv.config({path:"./config/config.env"})
 
 
-dotenv.config({path:"./config/config.env"})
- 
 
 const user = require("./router/userRouter")
 
 const Chat = require("./router/Chat")
 
- 
+
 
 app.use("/api/v1",user)
  
-app.use("api/v1/",Chat)
+app.use("/api/v1/",Chat)
 
 
 

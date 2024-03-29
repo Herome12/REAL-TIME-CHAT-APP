@@ -8,7 +8,7 @@ const {
 } = require("../utils/features.js");
 const {
   ALERT, 
-  NEW_MESSAGE,
+  NEW_MESSAGE, 
   NEW_MESSAGE_ALERT,
   REFETCH_CHATS,
 } = require( "../constants/event.js");
