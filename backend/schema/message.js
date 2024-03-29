@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema, model, Types } = mongoose;
 
 
-const schema = new Schema(
+const messageSchema = new Schema(
   {
     content: String,
 
@@ -36,6 +36,5 @@ const schema = new Schema(
   }
 );
 
-const Message = mongoose.models.Message || mongoose.model("Message", schema);
 
-module.exports = { Message };
+module.exports =  mongoose.model("Message", messageSchema);

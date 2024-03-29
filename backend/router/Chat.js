@@ -28,7 +28,7 @@ const app = express.Router();
 
 // After here user must be logged in to access the routes
 
-app.use(isAuthenticatedUser);
+app.use(isAuthenticatedUser); 
 
 app.post("/new", newGroupValidator(), validateHandler, newGroupChat);
 

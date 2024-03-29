@@ -1,7 +1,7 @@
 const mongoose  = require( "mongoose");
 const { Schema, model, Types } = require("mongoose")
 
-const schema = new Schema(
+const chatSchema = new Schema(
   {
     name: {
       type: String,
@@ -27,4 +27,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Chat",schema);
+module.exports = mongoose.model("Chat",chatSchema);

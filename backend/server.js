@@ -134,4 +134,4 @@ server.listen(process.env.PORT, () => {
   console.log(`connected successfully${process.env.PORT}`);
 });
 
-module.exports = app;
+module.exports = {  userSocketIDs };
